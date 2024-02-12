@@ -1,5 +1,5 @@
 ---
-import '@fontsource-variable/epilogue';
+import "@fontsource-variable/epilogue";
 import "@/styles/globals.css";
 
 interface Props {
@@ -12,6 +12,26 @@ const { title } = Astro.props;
 <!doctype html>
 <html lang="en">
     <head>
+        <script is:inline>
+            if (localStorage.getItem("theme") === null) {
+                if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                    document.documentElement.setAttribute(
+                        "data-theme",
+                        "black"
+                    );
+                } else {
+                    document.documentElement.setAttribute("data-theme", "lofi");
+                }
+            } else
+                document.documentElement.setAttribute(
+                    "data-theme",
+                    localStorage.getItem("theme")
+                );
+        </script>
+        <script>
+            import { themeChange } from "theme-change";
+            themeChange();
+        </script>
         <meta charset="UTF-8" />
         <meta
             name="description"
