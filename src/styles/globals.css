@@ -6,4 +6,16 @@
     body {
         @apply bg-base-200 text-base-content min-h-screen;
     }
+
+    ::-webkit-scrollbar {
+        @apply w-2;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply bg-base-content/20 hover:bg-base-content/30 transition-all duration-300 rounded-full;
+    }
+
+    ::-webkit-scrollbar-track {
+        @apply bg-base-200;
+    }
 }
