@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+    * {
+        @apply border-base-300;
+    }
+
     body {
         @apply bg-base-200 text-base-content min-h-screen;
     }
