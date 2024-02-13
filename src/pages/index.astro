@@ -2,29 +2,37 @@
 import Layout from "../layouts/Layout.astro";
 import { getCollection } from "astro:content";
 import WorkCard from "@/components/WorkCard.astro";
+import WritingCard from "@/components/WritingCard.astro";
 
 const allWorks = await getCollection("work");
+const allWritings = await getCollection("writing");
 
 allWorks.sort(
     (a, b) =>
         new Date(b.data.date as Date).getTime() -
         new Date(a.data.date as Date).getTime()
 );
+
+allWritings.sort(
+    (a, b) =>
+        new Date(b.data.pubDate as Date).getTime() -
+        new Date(a.data.pubDate as Date).getTime()
+);
 ---
 
 <Layout title="Hojayfa Rahman">
     <main class="px-2 md:px-24">
         <!-- Hero Section -->
-        <div class="hero py-36">
+        <div class="hero py-40">
             <div class="hero-content text-center">
                 <div class="max-w-xl">
                     <h1 class="text-5xl font-bold">
                         <span class="text-3xl font-normal">I'm</span> Hojayfa Rahman
                     </h1>
                     <p class="py-6">
-                        I'm a software developer. I create full-stack web apps,
-                        advocate for the impact of Artificial Intelligence, and
-                        automate processes.
+                        A software developer who creates full-stack web apps,
+                        advocates for the impact of Artificial Intelligence, and
+                        automates processes.
                     </p>
                     <a
                         href="mailto:hojayfarahman@gmail.com"
@@ -39,8 +47,26 @@ allWorks.sort(
         <div
             id="work"
             class="py-12">
+            <h3 class="font-bold text-3xl py-6">Projects I have worked on</h3>
             <div class="grid grid-cols-1 lg:grid-cols-3 w-full gap-4">
                 {allWorks.map((work) => <WorkCard work={work} />)}
+            </div>
+        </div>
+
+        <!-- Work Section  -->
+        <div
+            id="writing"
+            class="py-12">
+            <h3 class="font-bold text-3xl py-6">My writings</h3>
+            <div class="grid grid-cols-1 lg:grid-cols-3 w-full gap-4">
+                {
+                    allWritings.map((writing) => (
+                        <WritingCard
+                            variant="card"
+                            writing={writing}
+                        />
+                    ))
+                }
             </div>
         </div>
     </main>

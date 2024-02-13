@@ -1,0 +1,42 @@
+---
+const { variant, writing } = Astro.props;
+
+interface Props {
+    variant?: "card" | "list";
+    writing: any;
+}
+---
+
+<a
+    class={`flex flex-col space-y-2 group${
+        variant === "card"
+            ? " p-4 border rounded shadow hover:bg-base-300 transition-all duration-300"
+            : ""
+    }`}
+    href={`/writing/${writing.slug}/`}>
+    {
+        writing.data.tags && (
+            <div class="flex flex-wrap gap-2">
+                {writing.data.tags.map((tag) => (
+                    <span class="text-sm">#{tag}</span>
+                ))}
+            </div>
+        )
+    }
+    <h3
+        class={`text-lg font-semibold leading-none${
+            variant === "card" ? "" : " group-hover:underline"
+        }`}>
+        {writing.data.title}
+    </h3>
+    {
+        writing.data.pubDate && (
+            <p class="text-sm">
+                {writing.data.pubDate.toLocaleDateString("en-US", {
+                    month: "short",
+                    day: "2-digit",
+                })}
+            </p>
+        )
+    }
+</a>
