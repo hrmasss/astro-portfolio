@@ -1,0 +1,65 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+    const writingEntries = await getCollection("writing");
+    return writingEntries.map((entry) => ({
+        params: { slug: entry.slug },
+        props: { entry },
+    }));
+}
+
+const { entry } = Astro.props;
+const { Content, remarkPluginFrontmatter } = await entry.render();
+
+const writing = entry.data;
+---
+
+<Layout title={writing.title}>
+    <main class="px-4 py-8 lg:px-24 flex flex-col items-center justify-center">
+        <div
+            class="prose lg:prose-xl min-[320px]:max-[375px]:prose-pre:w-[300px] prose-img:rounded">
+            <h1 class="capitalize">{writing.title}</h1>
+            {
+                writing.tags && (
+                    <div class="flex flex-wrap gap-2">
+                        {writing.tags.map((tag) => (
+                            <a
+                                href={`/writing/tag/${tag}`}
+                                class="no-underline not-prose">
+                                <span class="text-sm lg:text-base font-semibold">
+                                    #{tag}
+                                </span>
+                            </a>
+                        ))}
+                    </div>
+                )
+            }
+            <div class="flex flex-col text-sm lg:text-base border-b-2 py-6">
+                <div class="flex space-x-2 font-semibold">
+                    {
+                        writing.pubDate && (
+                            <>
+                                <span>
+                                    Pulished on{" "}
+                                    {writing.pubDate.toLocaleDateString(
+                                        "en-US",
+                                        {
+                                            month: "short",
+                                            day: "2-digit",
+                                            year: "numeric",
+                                        }
+                                    )}
+                                </span>
+                                <span>&#183;</span>
+                            </>
+                        )
+                    }
+                    <span>{remarkPluginFrontmatter.minutesRead}</span>
+                </div>
+            </div>
+            <Content />
+        </div>
+    </main>
+</Layout>
