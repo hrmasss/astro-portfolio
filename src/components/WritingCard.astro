@@ -17,7 +17,7 @@ interface Props {
     {
         writing.data.tags && (
             <div class="flex flex-wrap gap-2">
-                {writing.data.tags.map((tag) => (
+                {writing.data.tags.map((tag: string) => (
                     <span class="text-sm">#{tag}</span>
                 ))}
             </div>
