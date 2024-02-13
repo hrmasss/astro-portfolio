@@ -23,13 +23,3 @@
         @apply bg-base-200;
     }
 }
-
-@layer utilities {
-    .bg-grid-gradient {
-        @apply bg-[linear-gradient(to_right,oklch(var(--b3))_1px,transparent_1px),linear-gradient(to_bottom,oklch(var(--b3))_1px,transparent_1px)] bg-[size:14px_24px];
-    }
-
-    .bg-dot-gradient {
-        @apply bg-[radial-gradient(oklch(var(--b3))_1px,transparent_1px)] [background-size:32px_32px];
-    }
-}
