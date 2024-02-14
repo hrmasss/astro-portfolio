@@ -1,0 +1,62 @@
+---
+import WritingCard from "@/components/WritingCard.astro";
+import Layout from "@/layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+    const allWriting = await getCollection("writing");
+    const uniqueTags = [
+        ...new Set(allWriting.map((writing) => writing.data.tags).flat()),
+    ];
+
+    return uniqueTags.map((tag) => {
+        const filteredPosts = allWriting.filter(
+            (writing) =>
+                tag && writing.data.tags && writing.data.tags.includes(tag)
+        );
+        return {
+            params: { tag },
+            props: { writings: filteredPosts },
+        };
+    });
+}
+
+const { tag } = Astro.params;
+const { writings } = Astro.props;
+---
+
+<Layout title={`Writing about ${tag}`}>
+    <main
+        class="flex flex-col items-center justify-center p-4 md:px-24 lg:px-36">
+        <div class="w-full py-8">
+            <h1
+                class="text-3xl font-medium border-b py-4 flex w-full items-center space-x-3">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-8 h-8">
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M5.25 8.25h15m-16.5 7.5h15m-1.8-13.5-3.9 19.5m-2.1-19.5-3.9 19.5"
+                    ></path>
+                </svg>
+
+                <span class="capitalize">Writing about {tag}</span>
+            </h1>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 py-8">
+                {
+                    writings.map((writing) => (
+                        <WritingCard
+                            variant="card"
+                            writing={writing}
+                        />
+                    ))
+                }
+            </div>
+        </div>
+    </main>
+</Layout>

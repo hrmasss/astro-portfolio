@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
+import WritingCard from "@/components/WritingCard.astro";
 
 export async function getStaticPaths() {
     const writingEntries = await getCollection("writing");
@@ -13,22 +14,29 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content, remarkPluginFrontmatter } = await entry.render();
 
-const writing = entry.data;
+const allWriting = await getCollection("writing");
+const similarWriting = allWriting.filter(
+    (candidate) =>
+        candidate.slug !== entry.slug &&
+        candidate.data.tags?.some((tag) => entry.data.tags?.includes(tag))
+);
+
+const currentWriting = entry.data;
 ---
 
-<Layout title={writing.title}>
+<Layout title={currentWriting.title}>
     <main class="px-4 py-8 lg:px-24 flex flex-col items-center justify-center">
         <div
             class="prose lg:prose-xl min-[320px]:max-[375px]:prose-pre:w-[300px] prose-img:rounded">
-            <h1 class="capitalize">{writing.title}</h1>
+            <h1 class="capitalize">{currentWriting.title}</h1>
             {
-                writing.tags && (
+                currentWriting.tags && (
                     <div class="flex flex-wrap gap-2">
-                        {writing.tags.map((tag) => (
+                        {currentWriting.tags.map((tag) => (
                             <a
                                 href={`/writing/tag/${tag}`}
                                 class="no-underline not-prose">
-                                <span class="text-sm lg:text-base font-semibold">
+                                <span class="text-sm lg:text-base font-semibold hover:underline">
                                     #{tag}
                                 </span>
                             </a>
@@ -39,11 +47,11 @@ const writing = entry.data;
             <div class="flex flex-col text-sm lg:text-base border-b-2 py-6">
                 <div class="flex space-x-2 font-semibold">
                     {
-                        writing.pubDate && (
+                        currentWriting.pubDate && (
                             <>
                                 <span>
                                     Pulished on{" "}
-                                    {writing.pubDate.toLocaleDateString(
+                                    {currentWriting.pubDate.toLocaleDateString(
                                         "en-US",
                                         {
                                             month: "short",
@@ -60,6 +68,21 @@ const writing = entry.data;
                 </div>
             </div>
             <Content />
+            {
+                similarWriting.length > 0 && (
+                    <div class="mt-12 border-t-2">
+                        <h3 class="text-3xl font-semibold">Related Writing</h3>
+                        {similarWriting.map((writing) => (
+                            <div class="not-prose grid grid-cols-1 lg:grid-cols-2 gap-4 pb-8">
+                                <WritingCard
+                                    variant="card"
+                                    writing={writing}
+                                />
+                            </div>
+                        ))}
+                    </div>
+                )
+            }
         </div>
     </main>
 </Layout>
