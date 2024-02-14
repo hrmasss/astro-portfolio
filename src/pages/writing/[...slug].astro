@@ -14,8 +14,8 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content, remarkPluginFrontmatter } = await entry.render();
 
-const allWriting = await getCollection("writing");
-const similarWriting = allWriting.filter(
+const allWritings = await getCollection("writing");
+const similarWritings = allWritings.filter(
     (candidate) =>
         candidate.slug !== entry.slug &&
         candidate.data.tags?.some((tag) => entry.data.tags?.includes(tag))
@@ -34,7 +34,7 @@ const currentWriting = entry.data;
                     <div class="flex flex-wrap gap-2">
                         {currentWriting.tags.map((tag) => (
                             <a
-                                href={`/writing/tag/${tag}`}
+                                href={`/writing/tag/${encodeURIComponent(tag)}`}
                                 class="no-underline not-prose">
                                 <span class="text-sm lg:text-base font-semibold hover:underline">
                                     #{tag}
@@ -69,10 +69,10 @@ const currentWriting = entry.data;
             </div>
             <Content />
             {
-                similarWriting.length > 0 && (
+                similarWritings.length > 0 && (
                     <div class="mt-12 border-t-2">
-                        <h3 class="text-3xl font-semibold">Related Writing</h3>
-                        {similarWriting.map((writing) => (
+                        <h3 class="text-3xl font-semibold">Related Writings</h3>
+                        {similarWritings.map((writing) => (
                             <div class="not-prose grid grid-cols-1 lg:grid-cols-2 gap-4 pb-8">
                                 <WritingCard
                                     variant="card"

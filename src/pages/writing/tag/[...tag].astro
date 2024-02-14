@@ -4,18 +4,16 @@ import Layout from "@/layouts/Layout.astro";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-    const allWriting = await getCollection("writing");
+    const allWritings = await getCollection("writing");
     const uniqueTags = [
-        ...new Set(allWriting.map((writing) => writing.data.tags).flat()),
+        ...new Set(allWritings.map((writing) => writing.data.tags).flat()),
     ];
 
-    return uniqueTags.map((tag) => {
-        const filteredPosts = allWriting.filter(
-            (writing) =>
-                tag && writing.data.tags && writing.data.tags.includes(tag)
-        );
+        return uniqueTags.map((tag) => {
+        const decodedTag = decodeURIComponent(tag as string);
+        const filteredPosts = allWritings.filter((writing) => writing.data.tags && writing.data.tags.includes(decodedTag));
         return {
-            params: { tag },
+            params: { tag: decodedTag },
             props: { writings: filteredPosts },
         };
     });
@@ -25,7 +23,7 @@ const { tag } = Astro.params;
 const { writings } = Astro.props;
 ---
 
-<Layout title={`Writing about ${tag}`}>
+<Layout title={`Writings about ${tag}`}>
     <main
         class="flex flex-col items-center justify-center p-4 md:px-24 lg:px-36">
         <div class="w-full py-8">
@@ -45,7 +43,7 @@ const { writings } = Astro.props;
                     ></path>
                 </svg>
 
-                <span class="capitalize">Writing about {tag}</span>
+                <span class="capitalize">Writings about {tag}</span>
             </h1>
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 py-8">
                 {
