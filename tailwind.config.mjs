@@ -7,7 +7,10 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['"Epilogue Variable"', ...defaultTheme.fontFamily.sans],
+                sans: [
+                    '"Bricolage Grotesque Variable"',
+                    ...defaultTheme.fontFamily.sans,
+                ],
             },
         },
     },

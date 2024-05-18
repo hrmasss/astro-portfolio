@@ -10,19 +10,19 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.5.3",
-    "@astrojs/mdx": "^2.1.1",
+    "@astrojs/check": "^0.7.0",
+    "@astrojs/mdx": "^3.0.0",
     "@astrojs/tailwind": "^5.1.0",
-    "@fontsource-variable/epilogue": "^5.0.9",
-    "astro": "^4.3.6",
+    "@fontsource-variable/bricolage-grotesque": "^5.0.6",
+    "astro": "^4.8.6",
     "mdast-util-to-string": "^4.0.0",
     "reading-time": "^1.5.0",
-    "tailwindcss": "^3.4.1",
+    "tailwindcss": "^3.4.3",
     "theme-change": "^2.5.0",
-    "typescript": "^5.3.3"
+    "typescript": "^5.4.5"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.10",
-    "daisyui": "^4.6.3"
+    "@tailwindcss/typography": "^0.5.13",
+    "daisyui": "^4.11.1"
   }
 }
