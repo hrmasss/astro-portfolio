@@ -1,73 +1,23 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import { getCollection } from "astro:content";
-import WorkCard from "@/components/WorkCard.astro";
-import WritingCard from "@/components/WritingCard.astro";
-
-const allWorks = await getCollection("work");
-const allWritings = await getCollection("writing");
-
-allWorks.sort(
-    (a, b) =>
-        new Date(b.data.date as Date).getTime() -
-        new Date(a.data.date as Date).getTime()
-);
-
-allWritings.sort(
-    (a, b) =>
-        new Date(b.data.pubDate as Date).getTime() -
-        new Date(a.data.pubDate as Date).getTime()
-);
+import Layout from "@/layouts/Layout.astro";
 ---
 
 <Layout title="Hojayfa Rahman">
-    <main>
-        <!-- Hero Section -->
-        <div class="hero py-40 px-2 md:px-24">
-            <div class="hero-content text-center">
-                <div class="max-w-xl">
-                    <h1 class="text-5xl font-bold">
-                        <span class="text-3xl font-normal">I'm</span> Hojayfa Rahman
-                    </h1>
-                    <p class="py-6">
-                        A software developer who creates full-stack web apps,
-                        advocates for the impact of Artificial Intelligence, and
-                        automates processes.
-                    </p>
-                    <a
-                        href="mailto:hojayfarahman@gmail.com"
-                        class="btn btn-primary"
-                        >Let's talk project</a
-                    >
-                </div>
-            </div>
-        </div>
-
-        <!-- Work Section  -->
-        <div
-            id="work"
-            class="py-12 bg-base-300/50 px-2 md:px-24">
-            <h3 class="font-bold text-3xl py-6">Projects I have worked on</h3>
-            <div class="grid grid-cols-1 lg:grid-cols-3 w-full gap-4">
-                {allWorks.map((work) => <WorkCard work={work} />)}
-            </div>
-        </div>
-
-        <!-- Writing Section  -->
-        <div
-            id="writing"
-            class="py-12 px-2 md:px-24">
-            <h3 class="font-bold text-3xl py-6">My writings</h3>
-            <div class="grid grid-cols-1 lg:grid-cols-3 w-full gap-4">
-                {
-                    allWritings.map((writing) => (
-                        <WritingCard
-                            variant="card"
-                            writing={writing}
-                        />
-                    ))
-                }
-            </div>
+    <main class="p-4 lg:p-0">
+        <div class="max-w-xl my-4">
+            <h1>
+                hey, i'm <span class="text-xl font-bold">hojayfa</span>
+            </h1>
+            <p class="py-6">
+                a software developer who creates full-stack web apps, advocates
+                for the impact of artificial intelligence, and automates
+                processes.
+            </p>
+            <a
+                href="mailto:hojayfarahman@gmail.com"
+                class="btn btn-primary btn-sm rounded-md"
+                >let's talk project</a
+            >
         </div>
     </main>
 </Layout>

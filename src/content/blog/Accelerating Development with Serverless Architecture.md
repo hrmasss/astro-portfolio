@@ -36,7 +36,7 @@ Serverless architecture, often referred to as Function as a Service (FaaS), abst
 
 Embracing serverless architecture within DevOps practices offers a paradigm shift in how applications are developed, deployed, and managed. By leveraging its inherent scalability, cost-efficiency, and agility, organizations can accelerate development cycles, enhance resource utilization, and drive innovation at scale.
 
-![Serverless DevOps](./cover.png)
+![Serverless DevOps](./images/cover.png)
 
 Integrate serverless architecture seamlessly into your DevOps workflows, unlocking the full potential of cloud-native development and revolutionizing your approach to software delivery.
 

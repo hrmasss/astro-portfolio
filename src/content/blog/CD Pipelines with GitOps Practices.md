@@ -38,6 +38,6 @@ Integrating GitOps practices into CI/CD pipelines offers a paradigm shift in how
 
 Embrace GitOps to unlock the full potential of CI/CD pipelines, paving the way for faster innovation and more resilient software delivery.
 
-![GitOps CI/CD](./cover.png)
+![GitOps CI/CD](./images/cover.png)
 
 Feel free to adapt and expand upon these practices to suit your organization's specific needs and workflows, ushering in a new era of efficiency and agility in software development and deployment.
