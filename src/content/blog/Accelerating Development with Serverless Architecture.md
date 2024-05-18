@@ -1,7 +1,5 @@
 ---
 title: Accelerating Development with Serverless Architecture
-description: Explore the benefits and implementation strategies of serverless architecture to streamline development workflows and enhance agility within DevOps practices.
-tags: ["serverless", "cloud", "agile"]
 pubDate: 2024-02-09
 ---
 

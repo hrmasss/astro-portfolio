@@ -1,13 +1,35 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("blog");
 ---
 
 <Layout title="Blog | Hojayfa Rahman">
     <main class="p-4 lg:p-0">
-        <div class="max-w-xl my-4">
+        <div class="max-w-xl">
             <h1>
-                sometimes i <span class="text-xl font-bold">write</span>
+                sometimes i <span class="text-xl font-bold">write</span> here
             </h1>
         </div>
+
+        <ul class="py-6">
+            {
+                posts.map(({ data: post, slug }) => (
+                    <li class="py-3">
+                        <a href={`/blog/${slug}/`}>
+                            <h3 class="font-medium sm:text-lg">{post.title}</h3>
+                            <p class="opacity-70 text-sm sm:text-base">
+                                {post.pubDate.toLocaleDateString("en-GB", {
+                                    month: "short",
+                                    day: "2-digit",
+                                    year: "numeric",
+                                })}
+                            </p>
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
     </main>
 </Layout>

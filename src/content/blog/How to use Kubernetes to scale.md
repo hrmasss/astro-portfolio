@@ -1,7 +1,5 @@
 ---
 title: How to use Kubernetes to scale your applications
-description: Kubernetes is a powerful container orchestration platform that allows you to automate the deployment, scaling, and management of containerized applications. Scaling your applications in Kubernetes can be achieved through various mechanisms provided by the platform.
-tags: ["kubernetes", "devops"]
 pubDate: 2024-02-08
 ---
 

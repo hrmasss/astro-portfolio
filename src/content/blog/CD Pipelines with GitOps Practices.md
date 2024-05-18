@@ -1,7 +1,5 @@
 ---
 title: Streamlining CI/CD Pipelines with GitOps Practices
-description: Explore the implementation of GitOps practices to enhance Continuous Integration/Continuous Deployment (CI/CD) pipelines, fostering automation, reliability, and collaboration within DevOps workflows.
-tags: ["devops", "gitops", "automation", "ci/cd"]
 pubDate: 2024-02-07
 ---
 
