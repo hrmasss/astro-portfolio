@@ -8,7 +8,7 @@
     }
 
     body {
-        @apply bg-base-200 text-base-content min-h-screen;
+        @apply bg-base-100 text-base-content min-h-screen;
     }
 
     ::-webkit-scrollbar {

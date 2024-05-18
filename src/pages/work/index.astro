@@ -1,13 +1,56 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const works = await getCollection("work");
 ---
 
-<Layout title="Works | Hojayfa Rahman">
+<Layout title="Work | Hojayfa Rahman">
     <main class="p-4 lg:p-0">
-        <div class="max-w-xl my-4">
+        <div class="max-w-xl mt-4">
             <h1>
-                here you can find my <span class="text-xl font-bold">works</span>
+                here you can find my
+                <strong class="text-xl font-bold">works</strong>
             </h1>
+
+            <p class="py-6">
+                a software developer who creates full-stack web apps, advocates
+                for the impact of artificial intelligence, and automates
+                processes.
+            </p>
         </div>
+
+        <section class="pb-6 space-y-6">
+            {
+                works.map(async (work) => {
+                    const { Content } = await work.render();
+                    return (
+                        <div class="p-4 sm:p-6 rounded-md border shadow-sm">
+                            <div class="space-y-1 mb-6">
+                                <h3 class="text-lg font-bold sm:text-xl">
+                                    {work.data.title}
+                                </h3>
+                                {work.data.url && (
+                                    <a
+                                        href={work.data.url}
+                                        class="font-medium text-teal-600 text-sm sm:text-base">
+                                        {work.data.url.replace(
+                                            /(^\w+:|^)\/\//,
+                                            ""
+                                        )}
+                                    </a>
+                                )}
+                                <p class="text-xs sm:text-sm">
+                                    {work.data.duration}
+                                </p>
+                            </div>
+                            <article class="prose-sm sm:prose-base prose-img:rounded-md">
+                                <Content />
+                            </article>
+                        </div>
+                    );
+                })
+            }
+        </section>
     </main>
 </Layout>

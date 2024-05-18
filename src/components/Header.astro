@@ -1,11 +1,17 @@
 ---
 import MenuIcon from "@/components/MenuIcon.astro";
 import ThemeToggle from "@/components/ThemeToggle.astro";
-import { navLinks } from "@/data/nav-links";
+
+const navLinks = [
+    { text: "/ home", href: "/" },
+    { text: "/ work", href: "/work" },
+    { text: "/ blog", href: "/blog" },
+    { text: "/ contact", href: "/contact" },
+];
 ---
 
 <header
-    class="sticky top-0 sm:static flex items-center justify-between bg-base-200/90 backdrop-blur transition-shadow duration-100 z-30 px-4 lg:px-0 min-h-16 lg:min-h-24">
+    class="sticky top-0 sm:static flex items-center justify-between bg-base-100/90 backdrop-blur transition-shadow duration-100 z-30 px-4 lg:px-0 min-h-16 lg:min-h-24">
     <div class="dropdown sm:hidden">
         <div
             tabindex="0"

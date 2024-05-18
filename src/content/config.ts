@@ -9,6 +9,17 @@ const blogCollection = defineCollection({
         }),
 });
 
+const workCollection = defineCollection({
+    type: "content",
+    schema: () =>
+        z.object({
+            title: z.string(),
+            duration: z.string(),
+            url: z.string().optional(),
+        }),
+});
+
 export const collections = {
     blog: blogCollection,
+    work: workCollection,
 };
