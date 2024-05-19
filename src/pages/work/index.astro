@@ -9,12 +9,13 @@ const works = await getCollection("work");
     <main class="p-4 lg:p-0">
         <div class="max-w-xl mt-4">
             <h1>
-                you can find some of my
-                <strong class="text-xl font-bold">works</strong> here
+                explore some of my
+                <strong class="text-xl font-bold">works</strong>
             </h1>
 
             <p class="py-6">
-                i try to keep my works 
+                highlights of my latest works and accomplishments, from code to
+                design, and everything in between.
             </p>
         </div>
 
@@ -23,7 +24,7 @@ const works = await getCollection("work");
                 works.map(async (work) => {
                     const { Content } = await work.render();
                     return (
-                        <div class="p-4 sm:p-6 rounded-md border shadow-sm">
+                        <div class="pt-6 border-t">
                             <div class="space-y-1 mb-6">
                                 <h3 class="text-lg font-bold sm:text-xl">
                                     {work.data.title}
@@ -31,7 +32,8 @@ const works = await getCollection("work");
                                 {work.data.url && (
                                     <a
                                         href={work.data.url}
-                                        class="font-medium text-sm sm:text-base">
+                                        target="_blank"
+                                        class="font-medium text-sm sm:text-base text-teal-600">
                                         {work.data.url.replace(
                                             /(^\w+:|^)\/\//,
                                             ""

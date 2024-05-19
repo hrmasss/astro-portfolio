@@ -1,10 +1,19 @@
 ---
-title: Accelerating Development with Serverless Architecture
-duration: May 2024 to July 2024
+title: "FleetHR: HR Management SaaS"
+url: https://fleethr.vercel.app
+duration: May 2024 to Jun 2024
 ---
 
-Serverless architecture, often referred to as Function as a Service (FaaS), abstracts server management and infrastructure provisioning, allowing developers to focus solely on writing and deploying code in the form of stateless functions. Key features of serverless architecture include:
+FleetHR is a powerful yet user-friendly HR management SaaS designed for small to medium organizations. Built with a modern tech stack, including Next.js, TypeScript, tRPC, Tailwind CSS, and Prisma, this application offers a flexible and cost-effective solution tailored to each organization's needs.
 
--   **Event-Driven Model**: Functions are triggered by events or HTTP requests, scaling dynamically based on demand.
--   **Pay-Per-Use Billing**: Billing is based on the actual execution time and resources consumed by functions, offering cost savings compared to traditional server-based models.
--   **Auto-Scaling**: Serverless platforms automatically scale resources up or down based on workload flu
+**Key Features:**
+
+- **Pay-as-you-go model:** Organizations can select and subscribe to the specific features they require, ensuring they only pay for what they need.
+- **Role-based access control:** Robust authorization system that filters access based on the user's role within the organization, ensuring data privacy and security.
+- **Intuitive user experience:** Focused on simplicity, the application's effortless interface empowers users to navigate and utilize its features seamlessly.
+
+**Achievements and Challenges:**
+
+- Implemented a comprehensive role-based authorization system, ensuring secure access to sensitive data based on each user's role and permissions.
+- Optimized the application's performance by leveraging Next.js's server-side rendering capabilities and tRPC's efficient data fetching.
+- Designed and developed a responsive and visually appealing user interface using Tailwind CSS, ensuring a consistent experience across devices.
