@@ -1,6 +1,8 @@
 ---
 import { Image } from "astro:assets";
+import BlobCard from "@/components/BlobCard.astro";
 import Layout from "@/layouts/Layout.astro";
+import OpenIcon from "@/components/assets/OpenIcon.astro";
 import NextjsLogo from "@/components/assets/NextjsLogo.astro";
 import TypescriptLogo from "@/components/assets/TypescriptLogo.astro";
 import ReactLogo from "@/components/assets/ReactLogo.astro";
@@ -21,7 +23,7 @@ import ZenithTechLogo from "@/components/assets/images/zenith.webp";
             </p>
             <a
                 href="mailto:hojayfarahman@gmail.com"
-                class="btn bg-base-content text-base-100 hover:bg-base-content/80 btn-sm rounded-md"
+                class="btn rounded-full btn-sm bg-secondary/70 text-secondary-content hover:bg-secondary/50 font-bold"
                 >let's talk project</a
             >
         </div>
@@ -36,20 +38,16 @@ import ZenithTechLogo from "@/components/assets/images/zenith.webp";
                 >, and more.
             </p>
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 w-full">
-                <div
-                    class="p-4 border rounded-md bg-base-content text-base-100">
+                <div class="p-4 border rounded-md bg-base-300/40 text-neutral-500">
                     <NextjsLogo className="size-12 m-auto" />
                 </div>
-                <div
-                    class="p-4 border rounded-md bg-base-content text-base-100">
+                <div class="p-4 border rounded-md bg-base-300/40 text-neutral-500">
                     <TypescriptLogo className="size-12 m-auto" />
                 </div>
-                <div
-                    class="p-4 border rounded-md bg-base-content text-base-100">
+                <div class="p-4 border rounded-md bg-base-300/40 text-neutral-500">
                     <ReactLogo className="size-12 m-auto" />
                 </div>
-                <div
-                    class="p-4 border rounded-md bg-base-content text-base-100">
+                <div class="p-4 border rounded-md bg-base-300/40 text-neutral-500">
                     <TailwindcssLogo className="size-12 m-auto" />
                 </div>
             </div>
@@ -59,20 +57,20 @@ import ZenithTechLogo from "@/components/assets/images/zenith.webp";
             <p>
                 over the past couple of years, i've worked on various projects
                 both commercial and hobby. you can find my open-source works on <a
-                    class="text-teal-600"
+                    class="text-secondary inline-flex font-bold"
                     href="https://github.com/hrmasss"
                     target="_blank"
-                    >github ↗</a
+                    >github <OpenIcon className="size-4" /></a
                 > or visit the <a
-                    class="text-teal-600"
+                    class="text-secondary inline-flex font-bold"
                     href="/work"
-                    >work ↗</a
+                    >work <OpenIcon className="size-4" /></a
                 > section to see some of the highlights. you can also check out
                 <a
                     target="_blank"
-                    class="text-teal-600"
+                    class="text-secondary inline-flex font-bold"
                     href="https://zenithx.tech"
-                    >zenith×tech ↗</a
+                    >zenith×tech <OpenIcon className="size-4" /></a
                 >, a software agency that i co-founded.
             </p>
         </div>
@@ -80,12 +78,14 @@ import ZenithTechLogo from "@/components/assets/images/zenith.webp";
         <a
             href="https://zenithx.tech"
             target="_blank"
-            class="rounded-md border p-4 flex items-center justify-center bg-base-content my-8">
-            <Image
-                class="w-48"
-                src={ZenithTechLogo}
-                alt="Logo of ZENITHxTECH, a software development agency based on Dhaka, Bangladesh."
-            />
+            class="my-8 block">
+            <BlobCard>
+                <Image
+                    class="w-48"
+                    src={ZenithTechLogo}
+                    alt="Logo of ZENITHxTECH, a software development agency based on Dhaka, Bangladesh."
+                />
+            </BlobCard>
         </a>
     </main>
 </Layout>

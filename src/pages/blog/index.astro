@@ -20,9 +20,9 @@ const posts = await getCollection("blog");
         <ul>
             {
                 posts.map(({ data: post, slug }) => (
-                    <li class="py-3">
-                        <a href={`/blog/${slug}/`}>
-                            <h3 class="font-medium sm:text-lg">{post.title}</h3>
+                    <li class="py-3 w-fit">
+                        <a href={`/blog/${slug}/`} class="group">
+                            <h3 class="font-medium sm:text-lg group-hover:text-secondary">{post.title}</h3>
                             <p class="opacity-70 text-sm sm:text-base">
                                 {post.pubDate.toLocaleDateString("en-GB", {
                                     month: "short",

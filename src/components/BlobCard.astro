@@ -1,0 +1,18 @@
+---
+interface Props {
+    className?: string;
+}
+
+const { className } = Astro.props;
+---
+
+<div class="relative overflow-hidden rounded-md">
+    <div
+        class="blob-animate absolute inset-0 m-auto size-96 rounded-full bg-indigo-800/90">
+    </div>
+
+    <div
+        class="z-10 flex items-center justify-center rounded-md border p-4 shadow backdrop-blur-3xl">
+        <slot />
+    </div>
+</div>
