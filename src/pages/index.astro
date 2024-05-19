@@ -27,14 +27,22 @@ import TailwindcssLogo from "@/components/assets/TailwindcssLogo.astro";
         <section class="py-8">
             <p>
                 i make performant and scalable application that users love to
-                use using modern technologies like next.js, react, typescript,
+                use, using modern technologies like next.js, react, typescript,
                 trpc, tailwindcss, and more.
             </p>
-            <div class="grid grid-cols-4 gap-4 pt-6 text-base-content/80">
-                <NextjsLogo className="size-12 mx-auto" />
-                <TypescriptLogo className="size-12 mx-auto" />
-                <ReactLogo className="size-12 mx-auto" />
-                <TailwindcssLogo className="size-12 mx-auto" />
+            <div class="grid grid-flow-col gap-4 pt-6 w-full">
+                <div class="sm:p-4 sm:bg-primary rounded-md sm:text-teal-400">
+                    <NextjsLogo className="size-12 m-auto" />
+                </div>
+                <div class="sm:p-4 sm:bg-primary rounded-md sm:text-teal-400">
+                    <TypescriptLogo className="size-12 m-auto" />
+                </div>
+                <div class="sm:p-4 sm:bg-primary rounded-md sm:text-teal-400">
+                    <ReactLogo className="size-12 m-auto" />
+                </div>
+                <div class="sm:p-4 sm:bg-primary rounded-md sm:text-teal-400">
+                    <TailwindcssLogo className="size-12 m-auto" />
+                </div>
             </div>
         </section>
 
@@ -42,9 +50,17 @@ import TailwindcssLogo from "@/components/assets/TailwindcssLogo.astro";
             <p>
                 over the past couple of years, i've worked on various projects
                 both commercial and hobby. you can find my open-source works on
-                <a href="https://github.com/hrmasss">github ↗</a>
+                <a
+                    class="text-teal-600"
+                    href="https://github.com/hrmasss"
+                    >github ↗</a
+                >
                 or visit the
-                <a href="/work">work ↗</a>
+                <a
+                    class="text-teal-600"
+                    href="/work"
+                    >work ↗</a
+                >
                 section to see some of the highlights.
             </p>
         </div>

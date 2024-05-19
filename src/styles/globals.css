@@ -11,10 +11,6 @@
         @apply bg-base-100 text-base-content min-h-screen;
     }
 
-    a {
-        @apply text-teal-600;
-    }
-
     ::-webkit-scrollbar {
         @apply w-2;
     }
