@@ -1,9 +1,11 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "@/layouts/Layout.astro";
 import NextjsLogo from "@/components/assets/NextjsLogo.astro";
 import TypescriptLogo from "@/components/assets/TypescriptLogo.astro";
 import ReactLogo from "@/components/assets/ReactLogo.astro";
 import TailwindcssLogo from "@/components/assets/TailwindcssLogo.astro";
+import ZenithTechLogo from "@/components/assets/images/zenith.webp";
 ---
 
 <Layout title="Hojayfa Rahman">
@@ -19,7 +21,7 @@ import TailwindcssLogo from "@/components/assets/TailwindcssLogo.astro";
             </p>
             <a
                 href="mailto:hojayfarahman@gmail.com"
-                class="btn btn-primary btn-sm rounded-md"
+                class="btn bg-base-content text-base-100 hover:bg-base-content/80 btn-sm rounded-md"
                 >let's talk project</a
             >
         </div>
@@ -33,17 +35,21 @@ import TailwindcssLogo from "@/components/assets/TailwindcssLogo.astro";
                     >next.js, react, typeScript, trpc, tailwind css</strong
                 >, and more.
             </p>
-            <div class="grid grid-flow-col gap-4 pt-6 w-full">
-                <div class="sm:p-4 sm:bg-primary rounded-md sm:text-teal-400">
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 w-full">
+                <div
+                    class="p-4 border rounded-md bg-base-content text-base-100">
                     <NextjsLogo className="size-12 m-auto" />
                 </div>
-                <div class="sm:p-4 sm:bg-primary rounded-md sm:text-teal-400">
+                <div
+                    class="p-4 border rounded-md bg-base-content text-base-100">
                     <TypescriptLogo className="size-12 m-auto" />
                 </div>
-                <div class="sm:p-4 sm:bg-primary rounded-md sm:text-teal-400">
+                <div
+                    class="p-4 border rounded-md bg-base-content text-base-100">
                     <ReactLogo className="size-12 m-auto" />
                 </div>
-                <div class="sm:p-4 sm:bg-primary rounded-md sm:text-teal-400">
+                <div
+                    class="p-4 border rounded-md bg-base-content text-base-100">
                     <TailwindcssLogo className="size-12 m-auto" />
                 </div>
             </div>
@@ -61,8 +67,25 @@ import TailwindcssLogo from "@/components/assets/TailwindcssLogo.astro";
                     class="text-teal-600"
                     href="/work"
                     >work ↗</a
-                > section to see some of the highlights.
+                > section to see some of the highlights. you can also check out
+                <a
+                    target="_blank"
+                    class="text-teal-600"
+                    href="https://zenithx.tech"
+                    >zenith×tech ↗</a
+                >, a software agency that i co-founded.
             </p>
         </div>
+
+        <a
+            href="https://zenithx.tech"
+            target="_blank"
+            class="rounded-md border p-4 flex items-center justify-center bg-base-content my-8">
+            <Image
+                class="w-48"
+                src={ZenithTechLogo}
+                alt="Logo of ZENITHxTECH, a software development agency based on Dhaka, Bangladesh."
+            />
+        </a>
     </main>
 </Layout>
