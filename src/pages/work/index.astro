@@ -19,13 +19,13 @@ const works = await getCollection("work");
             </p>
         </div>
 
-        <section class="pb-6 space-y-6">
+        <ul class="space-y-6 pb-6">
             {
                 works.map(async (work) => {
                     const { Content } = await work.render();
                     return (
-                        <div class="pt-6 border-t">
-                            <div class="space-y-1 mb-6">
+                        <li class="pt-6 border-t">
+                            <section class="space-y-1 mb-6">
                                 <h3 class="text-lg font-bold sm:text-xl">
                                     {work.data.title}
                                 </h3>
@@ -43,14 +43,14 @@ const works = await getCollection("work");
                                 <p class="text-xs sm:text-sm">
                                     {work.data.duration}
                                 </p>
-                            </div>
+                            </section>
                             <article class="prose-sm sm:prose-base prose-img:rounded-md">
                                 <Content />
                             </article>
-                        </div>
+                        </li>
                     );
                 })
             }
-        </section>
+        </ul>
     </main>
 </Layout>
