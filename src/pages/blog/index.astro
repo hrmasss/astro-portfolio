@@ -16,7 +16,7 @@ const posts = await getCollection("blog");
             </p>
         </div>
 
-        <ul class="py-6">
+        <ul>
             {
                 posts.map(({ data: post, slug }) => (
                     <li class="py-3">

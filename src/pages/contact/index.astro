@@ -1,13 +1,50 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import EmailIcon from "@/components/assets/EmailIcon.astro";
+import GithubLogo from "@/components/assets/GithubLogo.astro";
+import LinkedinLogo from "@/components/assets/LinkedinLogo.astro";
+import TwitterLogo from "@/components/assets/TwitterLogo.astro";
+import InstagramLogo from "@/components/assets/InstagramLogo.astro";
+import SubstackLogo from "@/components/assets/SubstackLogo.astro";
+
+const contacts = [
+    { icon: EmailIcon, url: "mailto:hojayfarahman@gmail.com" },
+    { icon: GithubLogo, url: "https://github.com/hrmasss" },
+    { icon: LinkedinLogo, url: "https://linkedin.com/in/hrmasss" },
+    { icon: TwitterLogo, url: "https://twitter.com/hrmasss" },
+    { icon: InstagramLogo, url: "https://instagram.com/hrmasss" },
+    { icon: SubstackLogo, url: "https://hrmasss.substack.com" },
+];
 ---
 
 <Layout title="Contact | Hojayfa Rahman">
     <main class="p-4 lg:p-0">
         <div class="max-w-xl my-4">
             <h1>
-                you can find my <strong class="text-xl font-bold">contacts</strong> here
+                want to <strong class="text-xl font-bold">connect</strong> with me?
             </h1>
+
+            <p class="py-6">
+                here's where you can reach me across different platforms.
+            </p>
         </div>
+
+        <section>
+            <ul class="space-y-2">
+                {
+                    contacts.map((contact) => (
+                        <li class="flex items-center gap-2">
+                            <contact.icon className="size-4" />
+                            <a href={contact.url}>
+                                {contact.url.replace(
+                                    /^(?:mailto:|https?:\/\/)?/i,
+                                    ""
+                                )}
+                            </a>
+                        </li>
+                    ))
+                }
+            </ul>
+        </section>
     </main>
 </Layout>
