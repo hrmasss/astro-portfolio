@@ -1,0 +1,73 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Icon } from "astro-icon/components";
+
+const SocialLinks = [
+    {
+        url: "mailto:hojayfarahman@gmail.com",
+        icon: "tabler:mail",
+    },
+    {
+        url: "https://github.com/hrmasss",
+        icon: "tabler:brand-github",
+    },
+    {
+        url: "https://www.linkedin.com/in/hrmasss",
+        icon: "tabler:brand-linkedin",
+    },
+    {
+        url: "https://twitter.com/hrmasss",
+        icon: "tabler:brand-twitter",
+    },
+    {
+        url: "https://facebook.com/hrmasss",
+        icon: "tabler:brand-facebook",
+    },
+    {
+        url: "https://instagram.com/hrmasss",
+        icon: "tabler:brand-instagram",
+    },
+];
+---
+
+<Layout title="Hojayfa Rahman">
+    <main
+        class="p-4 sm:p-8 lg:p-0 min-h-screen flex flex-col justify-center gap-4">
+        <div class="space-y-2">
+            <Icon
+                name="tabler:mood-sad"
+                class="size-24 mx-auto text-yellow-300"
+            />
+            <h1
+                class="text-2xl sm:text-4xl font-bold text-center max-w-md mx-auto">
+                Sorry,
+                <span
+                    class="bg-gradient-to-r from-pink-500 to-yellow-500 text-transparent bg-clip-text whitespace-nowrap"
+                    >hojayfa.codes
+                </span>
+                is under construction.
+            </h1>
+        </div>
+
+        <p class="md:text-lg max-w-xl mx-auto text-center text-pretty">
+            Check back shortly as I put the final touches. In the meantime, feel
+            free to connect with me on the following platforms.
+        </p>
+        <div class="flex items-center justify-center gap-2">
+            {
+                SocialLinks.map((link) => (
+                    <a
+                        class="inline-flex size-10 items-center justify-center gap-x-2 rounded-full text-gray-500 transition duration-300 hover:bg-yellow-200 hover:text-yellow-800"
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        <Icon
+                            name={link.icon}
+                            class="size-5"
+                        />
+                    </a>
+                ))
+            }
+        </div>
+    </main>
+</Layout>

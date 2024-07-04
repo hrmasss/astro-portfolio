@@ -1,4 +1,6 @@
 ---
+return Astro.redirect("/under-construction");
+
 import { Image } from "astro:assets";
 import BlobCard from "@/components/BlobCard.astro";
 import Layout from "@/layouts/Layout.astro";
@@ -38,16 +40,20 @@ import ZenithTechLogo from "@/components/assets/images/zenith.webp";
                 >, and more.
             </p>
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 w-full">
-                <div class="p-4 border rounded-md bg-base-300/40 text-neutral-500">
+                <div
+                    class="p-4 border rounded-md bg-base-300/40 text-neutral-500">
                     <NextjsLogo className="size-12 m-auto" />
                 </div>
-                <div class="p-4 border rounded-md bg-base-300/40 text-neutral-500">
+                <div
+                    class="p-4 border rounded-md bg-base-300/40 text-neutral-500">
                     <TypescriptLogo className="size-12 m-auto" />
                 </div>
-                <div class="p-4 border rounded-md bg-base-300/40 text-neutral-500">
+                <div
+                    class="p-4 border rounded-md bg-base-300/40 text-neutral-500">
                     <ReactLogo className="size-12 m-auto" />
                 </div>
-                <div class="p-4 border rounded-md bg-base-300/40 text-neutral-500">
+                <div
+                    class="p-4 border rounded-md bg-base-300/40 text-neutral-500">
                     <TailwindcssLogo className="size-12 m-auto" />
                 </div>
             </div>

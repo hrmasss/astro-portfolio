@@ -2,6 +2,7 @@ import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import { remarkReadingTime } from "./remark-reading-time.mjs";
 import mdx from "@astrojs/mdx";
+import icon from "astro-icon";
 
 import sitemap from "@astrojs/sitemap";
 
@@ -17,5 +18,10 @@ export default defineConfig({
         }),
         mdx(),
         sitemap(),
+        icon({
+            include: {
+                tabler: ["*"],
+            },
+        }),
     ],
 });
